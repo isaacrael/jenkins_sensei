@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xml:lang="en" lang="en">
+<head>
+<title>Jenkins Sensei Quiz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <h1><span>JENKINS SENSEI</span></h1>
+  </div>
+  <div id="nav">
+      {% if request.user.is_authenticated %}
+    <ul>
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li><a href="http://localhost:8000/quiz_selection/"><em>S</em>ENSEI <em>Q</em>UIZ <em>S</em>ELECTION</a></li>
+      <li><a href="http://localhost:8000/quiz/"><em>S</em>ENSEI <em>Q</em>UIZ</a></li>
+      <li><a href="http://localhost:8000/resources/"><em>R</em>ESOURCES</em></a></li>
+      <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
+       {% else %}
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li><a href="http://localhost:8000/account/register/"><em>R</em>EGISTER</a></li>
+      <li><a href="http://localhost:8000/account/login/"><em>L</em>OGIN</a></li>
+       {% endif %}
+
+    </ul>
+  </div>
+  <div id="body">
+    <div id="content">
+      <div class="i">
+          {% if request.user.is_authenticated %}
+        <h2><strong>Welcome {% if request.user.first_name %}</strong> To Jenkins Sensei</h2>
+                {{ request.user.first.name }}
+                {% else %}
+                {{ request.user.username }}
+                {% endif %}
+          {% else %}
+          <h2><strong>Welcome </strong> To Jenkins Sensei</h2>
+          {% endif %}
+
+<!-- code below creates custom Jenkins message based on user_response in Sensei Quiz Selection page-->
+
+ {% if user_response = "1" %}
+    <p><h2><center>Setup & Configuration Of Jenkins<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "2" %}
+    <p><h2><center>Distributed Builds MasterSlave Modes<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "3" %}
+    <p><h2><center>Creating Views & Jobs In Jenkins<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "4" %}
+    <p><h2><center>Managing Views & Jobs In Jenkins<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "5" %}
+    <p><h2><center>Advanced Automated Testing<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "6" %}
+    <p><h2><center>Software Deployments & Delivery<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "7" %}
+    <p><h2><center>Build Pipelines<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "8" %}
+    <p><h2><center>Continuous Practices<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "9" %}
+    <p><h2><center>Integrating Jenkins With Other Technologies<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "10" %}
+    <p><h2><center>Extending Jenkins<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "11" %}
+    <p><h2><center>Fun Facts<br>Click On Question Below</center></h2></p>
+ {% endif %}
+
+
+ {% if request.user.is_authenticated %}
+    {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'jenkins_sensei_quiz:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No Quiz is available please select the type of quiz you would like to take on the Quiz Selection page.</p>
+    {% endif %}
+ {% endif %}
+        </div>
+      </div>
+    </div>
+    <div id="copyright"> &copy; Copyright 2016 | Web Design & Software Application Development By <a target=_blank href="http://www.gilrael.com">Gil Rael</a></div>
+  </div>
+  <div id="footer"> </div>
+</div>
+</body>
+</html>
