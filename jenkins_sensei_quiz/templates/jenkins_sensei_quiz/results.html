@@ -13,13 +13,14 @@
   <div id="nav">
       {% if request.user.is_authenticated %}
     <ul>
+
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
       <li><a href="http://localhost:8000/quiz_selection/"><em>S</em>ENSEI <em>Q</em>UIZ <em>S</em>ELECTION</a></li>
       <li><a href="http://localhost:8000/quiz/"><em>S</em>ENSEI <em>Q</em>UIZ</a></li>
       <li><a href="http://localhost:8000/resources/"><em>R</em>ESOURCES</em></a></li>
       <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
        {% else %}
-      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li class=""first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
       <li><a href="http://localhost:8000/account/register/"><em>R</em>EGISTER</a></li>
       <li><a href="http://localhost:8000/account/login/"><em>L</em>OGIN</a></li>
        {% endif %}
@@ -39,33 +40,25 @@
           <h2><strong>Welcome </strong> To Jenkins Sensei</h2>
           {% endif %}
 
+<br>
+<br>
+<center>
+    {% if correct_answer == answer %}
+        <h3 style="color:white">Correct!...The correct answer is</h3><h3 style="color:yellow">{{ answer }}</h3>
+    {% else %}
+        <h3 style="color:white">Wrong!</h3><br>
+        <h3 style="color:white">The correct answer is</h3><h3 style="color:yellow"> {{ correct_answer }}</h3><br>
+        <h3 style="color:white"> Your answer was</h3><h3 style="color:yellow"> {{ answer }}</h3><br>
+    {% endif %}
+<br>
+<br>
+ <a href="http://localhost:8000/quiz/">Return To Sensei Quiz</a>
+<br>
+<br>
+</center>
 
-<p><center><h2>Please, type in the number that corresponds to the quiz that you would like to take then click submit
-and click on the Sensei Quiz menu option to take your quiz.
-</h2></center></p>
-<ul>
-<li>[1] Setup & Configuration Of Jenkins</li>
-<li>[2] Distributed Builds MasterSlave Modes</li>
-<li>[3] Creating Views & Jobs In Jenkins</li>
-<li>[4] Managing Views & Jobs In Jenkins</li>
-<li>[5] Advanced Automated Testing</li>
-<li>[6] Software Deployments & Delivery</li>
-<li>[7] Build Pipelines</li>
-<li>[8] Continuous Practices</li>
-<li>[9] Integrating Jenkins With Other Technologies</li>
-<li>[10] Extending Jenkins</li>
-<li>[11] Fun Facts</li>
-</ul>
 
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<form method="POST" action="/quiz_selection/">
-{% csrf_token %}
-  <table>{{ form.as_table }}</table>
-   <p><label for="id_name"> Type Your Answer:</label>
-<input class="textinput textInput form-control" id="id_name" maxlength="100" name="textfield" type="text" /></p>
-  <input type="submit" value="Submit" />
-</form>
         </div>
       </div>
     </div>
@@ -75,3 +68,4 @@ and click on the Sensei Quiz menu option to take your quiz.
 </div>
 </body>
 </html>
+
