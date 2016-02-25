@@ -29,8 +29,9 @@ a:hover {
 }
 body {
 /*  The line below is the original line of code the #800000 has been changed to #FFFFFF to change background color
-	background: #FFFFFF 0px 135px url(/css/grad.png) repeat-x; */
-	background: #FFFFFF 0px 135px url(/css/grad.png) repeat-x;
+	background: #d0d0e1 0px 135px url(/css/grad.png) repeat-x; */
+	background: #808080 0px 135px url(/css/grad.png) repeat-x;
+/*	background: #d0d0e1 0px 135px url(/css/grad.png) repeat-x; */
 	font: 12px arial, sans-serif;
 	color: #F09361;
 /*	color: #FFFFFF;*/
