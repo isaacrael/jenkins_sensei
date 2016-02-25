@@ -1,1 +1,1 @@
-user_response = '7'
+user_response = '1'
