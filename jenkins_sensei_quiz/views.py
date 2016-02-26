@@ -44,7 +44,7 @@ def git_quiz(request):
     if user_response == '1':
         latest_question_list = Question.objects.filter(category="Setup & Configuration Of Jenkins")
     if user_response == '2':
-        latest_question_list = Question.objects.filter(category="Distributed Builds MasterSlave Modes")
+        latest_question_list = Question.objects.filter(category="Distributed Builds Master Slave Mode")
     if user_response == '3':
         latest_question_list = Question.objects.filter(category="Creating Views & Jobs In Jenkins")
     if user_response == '4':
