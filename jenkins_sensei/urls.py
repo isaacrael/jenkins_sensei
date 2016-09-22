@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^quiz/', include('jenkins_sensei_quiz.urls', namespace="jenkins_sensei_quiz")),
     url(r'^quiz/', 'jenkins_sensei_quiz.views.git_quiz', name='git_quiz'),
     url(r'^resources/', 'jenkins_sensei_quiz.views.resources', name='resources'),
+    url(r'^ch1/', 'jenkins_sensei_quiz.views.ch1', name='ch1'),
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^admin/', include(admin.site.urls)),
