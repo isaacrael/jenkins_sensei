@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Answer, Question
+from . models import Answer, Question, MultQuestion, MultAnswer
 
 # Register your models here.
 
@@ -42,6 +42,15 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ['question_text']
 
 
+# added this class to have a MultQuestionAdmin class identical to QuestionAdmin
+
+class MultQuestionAdmin(admin.ModelAdmin):
+    list_display = ('question_text', 'pub_date', 'was_published_recently')
+    list_filter = ['pub_date']
+    search_fields = ['question_text']
+
+
+
 
 # Note: the two lines below register the Answer and Question classes
 # so that Question & Answers are visible together in the admin site
@@ -53,4 +62,6 @@ admin.site.register(Answer)
 admin.site.register(Question)
 
 
+admin.site.register(MultAnswer)
 
+admin.site.register(MultQuestion)

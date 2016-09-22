@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^quiz_selection/', views.quiz_selection, name='quiz_selection'),
     url(r'^$', views.git_quiz, name='index'),
     url(r'^resources/', views.resources, name='resources'),
+    url(r'^ch1/', views.ch1, name='ch1'),
     # ex: /quiz/5/
     url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
     # ex: /quiz/5/results/

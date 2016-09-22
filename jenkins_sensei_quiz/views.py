@@ -98,6 +98,9 @@ def resources(request):
     return render(request, 'jenkins_sensei_quiz/resources.html')
 
 
+def ch1(request):
+    return render(request, 'jenkins_sensei_quiz/ch1.html')
+
 
 
 
